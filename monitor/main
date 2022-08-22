@@ -1,6 +1,6 @@
-#!bin/bash
 inotifywait -m ../images/ -e create -e moved_to |
+    i=1
     while read dir action file; do
-        echo "The file '$file' appeared in directory"
-        # do something with the file
+        echo "The file '$file' appeared in directory '$dir' via '$action'";
+        mv "صالح.pdf" "$i.pdf";
     done
