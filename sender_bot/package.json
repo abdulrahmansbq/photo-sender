@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "telegraf": "^4.9.0"
+  },
+  "name": "sender_bot",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abdulrahman Alsubaiq",
+  "license": "ISC",
+  "description": ""
+}
