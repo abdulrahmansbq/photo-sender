@@ -25,12 +25,22 @@ bot.help(async (ctx) => {
 
 bot.command('image', (ctx) => {
     let imageID = ctx.update.message.text.split(' ')[1];
-    if (!fs.existsSync("../images/"+imageID+".png") || isNaN(imageID)) {
+    let extension = "";
+    if (isNaN(imageID)) {
+        ctx.reply(`Picture is not found`);
+        return;
+    }else if(fs.existsSync("../images/picbot-"+imageID+".png")){
+        extension="png";
+    }else if(fs.existsSync("../images/picbot-"+imageID+".jpg")){
+        extension="jpg";
+    }else if(fs.existsSync("../images/picbot-"+imageID+".jpeg")){
+        extension="jpeg";
+    }else{
         ctx.reply(`Picture is not found`);
         return;
     }
-    ctx.replyWithPhoto({ source: "../images/"+imageID+".png" });
-    fs.renameSync("../images/"+imageID+".png","../images/"+imageID+"-sent.png");
+    ctx.replyWithPhoto({ source: "../images/picbot-"+imageID+"."+extension });
+    fs.renameSync("../images/picbot-"+imageID+"."+extension,"../images/picbot-"+imageID+"-sent."+extension);
 });
 
 bot.launch();
