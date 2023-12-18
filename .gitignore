@@ -3,3 +3,4 @@
 # Ignore .gitignore files
 .env
 node_modules/
+images/*
